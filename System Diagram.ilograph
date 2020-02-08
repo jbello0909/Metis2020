@@ -1,0 +1,59 @@
+resources:
+- name: Metis2020
+  subtitle: Parent Resource
+  color: navy
+  children:
+  - name: User
+    subtitle: Available on Windows x86_64
+    
+  - name: Unity
+    subtitle: Graphics Handler
+    color: Black
+  
+  - name: C#
+    subtitle: UI components handler
+    color: BlueViolet
+    
+  - name: C++
+    subtitle: Function definitions
+    color: firebrick
+    
+  - name: Assembly
+    subtitle: Function implementation
+    color: SeaGreen
+    
+perspectives:
+- name: Sample
+  defaultRelationLabel: Start Game
+  color: royalblue
+  relations:
+  - from: User
+    to: Unity
+    arrowDirection: bidirectional
+    
+  - from: Unity
+    to: C#
+    label: Calls
+    arrowDirection: bidirectional
+    
+  - from: C#
+    to: C++
+    label: Calls
+    arrowDirection: bidirectional
+    
+  - from: C++
+    to: Assembly
+    label: Calls
+    arrowDirection: bidirectional
+    
+  - from: Assembly
+    arrowDirection: forward
+    to: Unity
+    label: Returns
+    
+  notes: |-
+    Welcome to your Ilograph diagram.
+
+    Your diagram comes pre-populated with resources and a sample perspective. **The editable source is in the window to the left**.
+
+    Need Help? Check out the [introduction to IDL](https://www.ilograph.com/docs/editing/idl/) and the [IDL Spec](https://www.ilograph.com/docs/editing/spec/). Additional resources are available on the [Ilograph Docs](https://www.ilograph.com/docs/editing/).
