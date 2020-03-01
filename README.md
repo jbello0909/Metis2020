@@ -49,7 +49,14 @@ The **Metis2020** is an interactive single player, multi-selection Trivia Game; 
 3. UnmangedCode: 
 - `.h` files: Autogenereted haders.
 - `UnmanagedCode.cpp`: C++ class where we will call the assembly functions. 
-- Assembly folder: Contains all of our `.asm` file(s). 
+- Assembly folder: Contains all of our `.asm` file(s).
+
+## Unity Editor Build Related Comment
+1. After placing `UnmanagedCode.dll` in the `.\Asset\` directory, the game can be built in Unity Editor through `File -> Build And Run` or Ctrl+B. You will be prompt a directory to store the executable file.
+
+2. (Experimental) The game can  also be built directly in Visual Studio. First, export the project as a Visual Studio Solution along with all the assets and source code in Unity Editor through `File -> Build Settings...` or Ctrl+ShiftB. The Build Settings dialog displays. Check the `Create Visual Studio Solution` check box, and select `Build`. You will be prompt a directory to store the solution file and associated directories. At the current moment, only Windows x86_64 is a valid target to export. 
+
+3. You may encounter an error message by opening the exported solution file. The exception appears to be thrown by microsoft.servicehub.controller.exe. The error may be similar to "Exception Processing Message 0x00005 Parameters 0x000007fefcee819c 0x000007fefcee819c  0x000007fefcee819c  0x000007fefcee819c." The error does not prevent you to build the solution and generate the working executable. Further investigation is required.  
 
 (_Descriptive comments have been added to the code that explains intent_)
 
