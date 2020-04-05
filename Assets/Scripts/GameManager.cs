@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,247 +12,224 @@ public class GameManager : MonoBehaviour
 {
      // Imports C++ DLL
      [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl)]
-     public static extern Int32 GetTestNumber();
+     public static extern int GetTimeInSeconds();
 
      [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-     public static extern IntPtr GetTestMessage();
+     public static extern IntPtr LoadCorrect();
+
+     [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+     public static extern IntPtr LoadWrong();
+
+     [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl)]
+     public static extern bool CheckAnswer(int a);
+
+     [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+     public static extern IntPtr GetTrigger(char button);
 
      // This is here for initial testing purposes until we implement a dynamic question/answer work-flow. 
      private static List<Question> UnansweredQuestions = new List<Question>
-    {
+     {
         new Question
         {
-            Fact = "2 + 2",
+            Fact = "Which is the largest ocean?",
             Answers = new List<Answer>
             {
                 new Answer
                 {
-                    Response = "4",
-                    Result = true
+                    Response = "Pacific Ocean",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "6",
-                    Result = false
+                    Response = "Atlantic Ocean",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "5",
-                    Result = false
+                    Response = "Indian Ocean",
+                    Result = 0
                 }
             },
-            Result = true
         },
         new Question
         {
-            Fact = "10 + 10",
+            Fact = "When did World War II end?",
             Answers = new List<Answer>
             {
                 new Answer
                 {
-                    Response = "19",
-                    Result = false
+                    Response = "1948",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "20",
-                    Result = true
+                    Response = "1942",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "21",
-                    Result = false
+                    Response = "1945",
+                    Result = 1
                 }
             },
-            Result = false
         },
         new Question
         {
-            Fact = "16 + 4",
+            Fact = "What is the hardest metal on Earth?",
             Answers = new List<Answer>
             {
                 new Answer
                 {
-                    Response = "21",
-                    Result = false
+                    Response = "Chromium",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "19",
-                    Result = false
+                    Response = "Iridium",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "20",
-                    Result = true
+                    Response = "Titanium",
+                    Result = 0
                 }
             },
-            Result = true
         },
         new Question
         {
-            Fact = "25 + 10",
+            Fact = "Which of these is NOT a valid register?",
             Answers = new List<Answer>
             {
                 new Answer
                 {
-                    Response = "34",
-                    Result = false
+                    Response = "HD",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "35",
-                    Result = true
+                    Response = "EAX",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "36",
-                    Result = false
+                    Response = "AH",
+                    Result = 0
                 }
             },
-            Result = false
         },
         new Question
         {
-            Fact = "32 - 7",
+            Fact = "Who is the Chancellor of Indiana University Southeast?",
             Answers = new List<Answer>
             {
                 new Answer
                 {
-                    Response = "26",
-                    Result = false
+                    Response = "Dr. Roy Tibbs",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "24",
-                    Result = false
+                    Response = "Dr. Victoria Watson",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "25",
-                    Result = true
+                    Response = "Dr. Ray Wallace",
+                    Result = 1
                 }
             },
-            Result = false
         },
         new Question
         {
-            Fact = "23 - 4",
+            Fact = "Which of these cities is NOT in Europe?",
             Answers = new List<Answer>
               {
                 new Answer
                 {
-                    Response = "19",
-                    Result = true
+                    Response = "Prague",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "18",
-                    Result = false
+                    Response = "Tyre",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "20",
-                    Result = false
+                    Response = "Reykjavík",
+                    Result = 0
                 }
             },
-            Result = true
         },
         new Question
         {
-            Fact = "13 + 3",
+            Fact = "What is the architectural style of Notre Dame Cathedral in Paris?",
             Answers = new List<Answer>
               {
                 new Answer
                 {
-                    Response = "17",
-                    Result = false
+                    Response = "Gothic",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "15",
-                    Result = false
+                    Response = "Baroque",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "16",
-                    Result = true
+                    Response = "Romanesque",
+                    Result = 0
                 }
             },
-            Result = true
         },
         new Question
         {
-            Fact = "14 + 10",
+            Fact = "Which Turkish sultan conquered Constantinople?",
              Answers = new List<Answer>
               {
                 new Answer
                 {
-                    Response = "23",
-                    Result = false
+                    Response = "Murad I",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "24",
-                    Result = true
+                    Response = "Osman III",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "25",
-                    Result = false
+                    Response = "Mehmed II",
+                    Result = 1
                 }
             },
-            Result = false
         },
         new Question
         {
-            Fact = "6 + 5",
+            Fact = "Who was the creator of The Last Supper painting?",
              Answers = new List<Answer>
               {
                 new Answer
                 {
-                    Response = "11",
-                    Result = true
+                    Response = "Michelangelo",
+                    Result = 0
                 },
                 new Answer
                 {
-                    Response = "10",
-                    Result = false
+                    Response = "Leonardo da Vinci",
+                    Result = 1
                 },
                 new Answer
                 {
-                    Response = "12",
-                    Result = false
+                    Response = "Vincent Van Gogh",
+                    Result = 0
                 }
             },
-            Result = false
-        },
-        new Question
-        {
-            Fact = "19 - 4",
-             Answers = new List<Answer>
-              {
-                new Answer
-                {
-                    Response = "14",
-                    Result = false
-                },
-                new Answer
-                {
-                    Response = "15",
-                    Result = true
-                },
-                new Answer
-                {
-                    Response = "16",
-                    Result = false
-                }
-            },
-            Result = true
         }
     };
      private Question CurrentQuestion;
-     private readonly float TimeBetweenQuestions = 5;
+     private float TimeBetweenQuestions;
      private Texture2D CorrectTexture;
      private Texture2D WrongTexture;
      [SerializeField]
@@ -276,15 +252,16 @@ public class GameManager : MonoBehaviour
      //Constructor
      void Awake()
      {
-          var number = GetTestNumber();
-          Debug.Log($"Number from Assembly: {number}");
+          TimeBetweenQuestions = GetTimeInSeconds();
+          Debug.Log($"Time between questions: {TimeBetweenQuestions}");
 
-          // We are not actually using this yet, just here to show the flow on strings.
-          var message = Marshal.PtrToStringAnsi(GetTestMessage()); ;
-          Debug.Log($"String from Assembly: {message}");
+          string correct = Marshal.PtrToStringAnsi(LoadCorrect());
+          string wrong = Marshal.PtrToStringAnsi(LoadWrong());
+          Debug.Log($"Correct Text: {correct}");
+          Debug.Log($"Wrong Text: {wrong}");
 
-          CorrectTexture = Resources.Load<Texture2D>("Textures/Correct");
-          WrongTexture = Resources.Load<Texture2D>("Textures/Wrong");
+          CorrectTexture = Resources.Load<Texture2D>(correct);
+          WrongTexture = Resources.Load<Texture2D>(wrong);
      }
 
      // Start is called before the first frame update
@@ -301,7 +278,7 @@ public class GameManager : MonoBehaviour
 
      public void UserSelectA()
      {
-          if (CurrentQuestion.Answers[0].Result)
+          if (CheckAnswer(CurrentQuestion.Answers[0].Result))
           {
                FirstResponseImg.texture = CorrectTexture;
                // Add score function. If correct add question score.
@@ -312,13 +289,13 @@ public class GameManager : MonoBehaviour
                // Add score function. If incorrect subtract half of question score.
           }
 
-          Animator.SetTrigger("ButtonAClicked");
+          Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('A')));
           StartCoroutine(TransitionToNextQuestion());
      }
 
      public void UserSelectB()
      {
-          if (CurrentQuestion.Answers[1].Result)
+          if (CheckAnswer(CurrentQuestion.Answers[1].Result))
           {
                SecondResponseImg.texture = CorrectTexture;
                // Add score function. If correct add question score.
@@ -329,13 +306,13 @@ public class GameManager : MonoBehaviour
                // Add score function. If incorrect subtract half of question score.
           }
 
-          Animator.SetTrigger("ButtonBClicked");
+          Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('B')));
           StartCoroutine(TransitionToNextQuestion());
      }
 
      public void UserSelectC()
      {
-          if (CurrentQuestion.Answers[2].Result)
+          if (CheckAnswer(CurrentQuestion.Answers[2].Result))
           {
                ThirdResponseImg.texture = CorrectTexture;
                // Add score function. If correct add question score.
@@ -346,7 +323,7 @@ public class GameManager : MonoBehaviour
                // Add score function. If incorrect subtract half of question score.
           }
 
-          Animator.SetTrigger("ButtonCClicked");
+          Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('C')));
           StartCoroutine(TransitionToNextQuestion());
      }
 

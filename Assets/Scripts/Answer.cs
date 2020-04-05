@@ -6,7 +6,6 @@ namespace Assets.Scripts
      public class Answer
      {
           public string Response;
-          public bool Result;
-          public int Score;
+          public int Result;
      }
 }

@@ -7,5 +7,5 @@ public class Question
 {
      public string Fact; // Question text.
      public List<Answer> Answers;
-     public bool Result;
+     public int Score;
 }

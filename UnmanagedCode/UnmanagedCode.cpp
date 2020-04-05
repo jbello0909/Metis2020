@@ -1,16 +1,41 @@
 #include "pch.h"
 #include "UnmanagedCode.h"
+#include <string>
 
 // Assembly functions import. We need to add each .asm file we are going to use.
-extern "C" int GetNumberAsm();
-extern "C" char* GetMessageAsm();
+extern "C" int GetTimeInSecondsAsm();
+extern "C" char* LoadCorrectAsm();
+extern "C" char* LoadWrongAsm();
+extern "C" int CheckAnswerAsm(int a);
+extern "C" char* GetTriggerAsm(char button);
 
-int GetTestNumber()
+int GetTimeInSeconds()
 {
-    return GetNumberAsm();
+     return GetTimeInSecondsAsm();
 }
 
-char* GetTestMessage()
+char* LoadCorrect()
 {
-    return GetMessageAsm();
+     return LoadCorrectAsm();
+}
+
+char* LoadWrong()
+{
+     return LoadWrongAsm();
+}
+
+bool CheckAnswer(int result)
+{
+     int a = CheckAnswerAsm(result);
+     if (a == 0)
+     {
+          return false;
+     }
+
+     return true;
+}
+
+char* GetTrigger(char button)
+{
+     return GetTriggerAsm(button);
 }
