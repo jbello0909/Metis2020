@@ -39,4 +39,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="checkanswer.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="gettimeinseconds.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="gettrigger.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="loadcorrect.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="loadwrong.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+  </ItemGroup>
 </Project>

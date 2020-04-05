@@ -166,6 +166,13 @@
     </ClCompile>
     <ClCompile Include="UnmanagedCode.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="checkanswer.asm" />
+    <MASM Include="gettimeinseconds.asm" />
+    <MASM Include="gettrigger.asm" />
+    <MASM Include="loadcorrect.asm" />
+    <MASM Include="loadwrong.asm" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
