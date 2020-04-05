@@ -166,13 +166,6 @@
     </ClCompile>
     <ClCompile Include="UnmanagedCode.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\checkanswer.asm" />
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\gettimeinseconds.asm" />
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\gettrigger.asm" />
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\loadcorrect.asm" />
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\loadwrong.asm" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />

@@ -39,21 +39,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\checkanswer.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\gettimeinseconds.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\gettrigger.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\loadcorrect.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
-    <MASM Include="..\..\..\..\..\Users\junet\Downloads\TriviaGameMultiSelection\TriviaGameMultiSelection\Asm\Asm\loadwrong.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
-  </ItemGroup>
 </Project>
