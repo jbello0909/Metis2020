@@ -58,5 +58,48 @@ The **Metis2020** is an interactive single player, multi-selection Trivia Game; 
 
 3. You may encounter an error message by opening the exported solution file. The exception appears to be thrown by microsoft.servicehub.controller.exe. The error may be similar to "Exception Processing Message 0x00005 Parameters 0x000007fefcee819c 0x000007fefcee819c  0x000007fefcee819c  0x000007fefcee819c." The error does not prevent you to build the solution and generate the working executable. Further investigation is required.  
 
+## System flow description
+As previously stated **Metis2020** has been built with `Unity Framework`. `Unity` handles all the UI related components (buttons, labels and effects) and the logic/functionality behind for those components was done with `C#`. 
+
+**For example:** When a user clicks on a button to respond a question it also triggers a series of events like: verifies the correctness of the answer, activates triggers for the button box sliding effect, sets the next question, etc. 
+
+**The entry point of the game is the `void Awake()` (`constructor`) method in `class GameManager` which is `C#`**
+
+### Existing languages integration: 
+As off 4/5/20 the main methods are written in `C#`. From `C#` a **DLL** generated with `C++` gets called and last `C++` calls `Assembly.
+
+**For example:** The `GetTimeInSeconds()` method which specifies the time interval between questions to be displayed.
+
+1 - `C#` gets triggered on initial load and calls `C++` using the imported `DLL`:
+
+```C#
+Void Awake() {
+TimeBetweenQuestions = GetTimeInSeconds();
+}
+```
+
+2 - `C++` calls `Assembly`:
+
+```C++
+int GetTimeInSeconds() {
+    return GetTimeInSecondsAsm();
+}
+```
+3 - `Assembly` is where that actual function get executed returning the value needed:
+
+```Assembly
+.code
+GetTimeInSecondsAsm proc
+    mov rax, 3
+    ret
+GetTimeInSecondsAsm endp
+end
+```
+4 - `Assembly` returns the value **3** (number of seconds between questions) to `C++`, which then sends it to `C#` which communicates with `Unity` to assign the giving value to the next question event.
+
+<br />
+<br />
+<br />
+
 (_Descriptive comments have been added to the code that explains intent_)
 
