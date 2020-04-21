@@ -248,9 +248,10 @@ public class GameManager : MonoBehaviour
      private Text ThirdAnswerText;
      [SerializeField]
      private Animator Animator;
-
-     //Constructor
-     void Awake()
+     public static int scoreValue;
+     public Text score;
+    //Constructor
+    void Awake()
      {
           TimeBetweenQuestions = GetTimeInSeconds();
           Debug.Log($"Time between questions: {TimeBetweenQuestions}");
@@ -268,25 +269,40 @@ public class GameManager : MonoBehaviour
      void Start()
      {
           SetCurrentQuestion();
+          //scoreValue = 0;
+          score.text = "Score: " + scoreValue;
      }
 
      // Update is called once per frame
      void Update()
      {
-
+        score.text = "Score: " + scoreValue;
      }
+
+     public void UpdateScore(int scoreToAdd)
+    {
+        scoreValue += scoreToAdd;
+        score.text = "Score: " + scoreValue;
+        
+    }
+
 
      public void UserSelectA()
      {
           if (CheckAnswer(CurrentQuestion.Answers[0].Result))
           {
                FirstResponseImg.texture = CorrectTexture;
-               // Add score function. If correct add question score.
+            // Add score function. If correct add question score.
+             UpdateScore(10);
+           
+               
           }
           else
           {
                FirstResponseImg.texture = WrongTexture;
-               // Add score function. If incorrect subtract half of question score.
+            // Add score function. If incorrect subtract half of question score.
+            UpdateScore(-5);
+            
           }
 
           Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('A')));
@@ -298,12 +314,15 @@ public class GameManager : MonoBehaviour
           if (CheckAnswer(CurrentQuestion.Answers[1].Result))
           {
                SecondResponseImg.texture = CorrectTexture;
-               // Add score function. If correct add question score.
+            // Add score function. If correct add question score.
+               UpdateScore(10);
+               
           }
           else
           {
                SecondResponseImg.texture = WrongTexture;
-               // Add score function. If incorrect subtract half of question score.
+            // Add score function. If incorrect subtract half of question score.
+               UpdateScore(-5);
           }
 
           Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('B')));
@@ -315,12 +334,15 @@ public class GameManager : MonoBehaviour
           if (CheckAnswer(CurrentQuestion.Answers[2].Result))
           {
                ThirdResponseImg.texture = CorrectTexture;
-               // Add score function. If correct add question score.
+            // Add score function. If correct add question score.
+               UpdateScore(10);
+
           }
           else
           {
                ThirdResponseImg.texture = WrongTexture;
-               // Add score function. If incorrect subtract half of question score.
+            // Add score function. If incorrect subtract half of question score.
+               UpdateScore(-5);
           }
 
           Animator.SetTrigger(Marshal.PtrToStringAnsi(GetTrigger('C')));
@@ -343,7 +365,7 @@ public class GameManager : MonoBehaviour
      {
           UnansweredQuestions.Remove(CurrentQuestion);
           yield return new WaitForSeconds(TimeBetweenQuestions);
-
-          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
      }
 }
