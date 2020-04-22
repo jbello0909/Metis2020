@@ -510,10 +510,12 @@ public class GameManager : MonoBehaviour
     public void AddCount()
     {
         count++;
-        //if (count > 15)
-        //{
-        //    SceneManager.LoadScene("EndScreen");
-        //}
+        
+    }
+
+    public void ResetCount()
+    {
+        count = 0;
     }
 
 
@@ -605,6 +607,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            ResetCount();
             SceneManager.LoadScene("EndScreen");
         }
     }

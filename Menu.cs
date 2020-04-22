@@ -22,11 +22,13 @@ public class Menu : MonoBehaviour
 
     public void PlayAgain()
     {
+        GameManager.scoreValue = 0;
         SceneManager.LoadScene("Intro");
     }
 
     public void ExitButton()
     {
+       
         Application.Quit();
     
     }
