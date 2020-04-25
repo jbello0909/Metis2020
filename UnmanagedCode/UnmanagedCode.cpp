@@ -8,6 +8,7 @@ extern "C" char* LoadCorrectAsm();
 extern "C" char* LoadWrongAsm();
 extern "C" int CheckAnswerAsm(int a);
 extern "C" char* GetTriggerAsm(char button);
+extern "C" int GetCountAsm();  //
 
 int GetTimeInSeconds()
 {
@@ -38,4 +39,9 @@ bool CheckAnswer(int result)
 char* GetTrigger(char button)
 {
      return GetTriggerAsm(button);
+}
+
+int GetCount() 
+{
+    return GetCountAsm();
 }

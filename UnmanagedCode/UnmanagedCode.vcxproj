@@ -172,6 +172,7 @@
     <MASM Include="gettrigger.asm" />
     <MASM Include="loadcorrect.asm" />
     <MASM Include="loadwrong.asm" />
+    <MASM Include="getcount.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
