@@ -170,9 +170,12 @@
     <MASM Include="checkanswer.asm" />
     <MASM Include="gettimeinseconds.asm" />
     <MASM Include="gettrigger.asm" />
+    <MASM Include="increment.asm" />
     <MASM Include="loadcorrect.asm" />
     <MASM Include="loadwrong.asm" />
     <MASM Include="getcount.asm" />
+    <MASM Include="updatescoredec.asm" />
+    <MASM Include="updatescoreinc.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 using namespace std;
 
@@ -16,3 +16,12 @@ bool CheckAnswer(int a);
 
 extern "C" __declspec(dllexport)
 char* GetTrigger(char button);
+
+extern "C" __declspec(dllexport)
+int Increment(int value);
+
+extern "C" __declspec(dllexport)
+int UpdateScoreInc(int value);
+
+extern "C" __declspec(dllexport)
+int UpdateScoreDec(int value);

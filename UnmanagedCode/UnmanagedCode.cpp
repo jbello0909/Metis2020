@@ -8,7 +8,10 @@ extern "C" char* LoadCorrectAsm();
 extern "C" char* LoadWrongAsm();
 extern "C" int CheckAnswerAsm(int a);
 extern "C" char* GetTriggerAsm(char button);
-extern "C" int GetCountAsm();  //
+extern "C" int GetCountAsm();
+extern "C" int IncrementAsm(int value);
+extern "C" int UpdateScoreIncAsm(int score);
+extern "C" int UpdateScoreDecAsm(int score);
 
 int GetTimeInSeconds()
 {
@@ -44,4 +47,19 @@ char* GetTrigger(char button)
 int GetCount() 
 {
     return GetCountAsm();
+}
+
+int Increment(int value)
+{
+     return IncrementAsm(value);
+}
+
+int UpdateScoreInc(int score)
+{
+     return UpdateScoreIncAsm(score);
+}
+
+int UpdateScoreDec(int score)
+{
+     return UpdateScoreDecAsm(score);
 }

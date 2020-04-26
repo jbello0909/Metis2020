@@ -58,5 +58,14 @@
     <MASM Include="getcount.asm">
       <Filter>Source Files\Assembly</Filter>
     </MASM>
+    <MASM Include="increment.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="updatescoredec.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
+    <MASM Include="updatescoreinc.asm">
+      <Filter>Source Files\Assembly</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
