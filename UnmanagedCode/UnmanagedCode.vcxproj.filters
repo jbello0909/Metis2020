@@ -55,8 +55,5 @@
     <MASM Include="loadwrong.asm">
       <Filter>Source Files\Assembly</Filter>
     </MASM>
-    <MASM Include="getcount.asm">
-      <Filter>Source Files\Assembly</Filter>
-    </MASM>
   </ItemGroup>
 </Project>

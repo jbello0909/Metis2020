@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices;
-
 
 public class Menu : MonoBehaviour
 {
@@ -20,18 +18,5 @@ public class Menu : MonoBehaviour
     public void Controls()
     {
         SceneManager.LoadScene("Controls");
-    }
-
-    public void PlayAgain()
-    {
-        GameManager.scoreValue = 0;
-        SceneManager.LoadScene("Intro");
-    }
-
-    public void ExitButton()
-    {
-
-        Application.Quit();
-    
     }
 }
