@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 1748691032}
   - component: {fileID: 1748691031}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Controlstext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: -111}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748691031
@@ -527,7 +527,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Select answer with a single mouse click
+  m_text: 'Select answer with left mouse click
+
+    Correct answer is +10 points
+
+    Incorrect answer is -5 points
 
 '
   m_isRightToLeft: 0
@@ -598,12 +602,12 @@ MonoBehaviour:
   m_margin: {x: -154.78224, y: -171.22693, z: -192.09583, w: 0}
   m_textInfo:
     textComponent: {fileID: 1748691031}
-    characterCount: 40
+    characterCount: 95
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 7
+    spaceCount: 16
+    wordCount: 16
     linkCount: 0
-    lineCount: 1
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -930,7 +934,7 @@ GameObject:
   - component: {fileID: 1961492636}
   - component: {fileID: 1961492635}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ControlHeading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.069000006}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 250}
+  m_AnchoredPosition: {x: 24, y: 187}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961492635
