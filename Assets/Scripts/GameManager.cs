@@ -515,6 +515,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ResetCount()
+    {
+        count = 0;
+    }
+
 
 
 
@@ -608,7 +613,8 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("EndScreen");
-            count = GetCount();
+            //count = GetCount();
+            ResetCount();
         }
     }
 }
