@@ -475,6 +475,7 @@ public class GameManager : MonoBehaviour
      public static int scoreValue;
      public Text score;
      public static int count = 0;
+     public Text counter;
     //Constructor
     void Awake()
      {
@@ -501,24 +502,26 @@ public class GameManager : MonoBehaviour
      void Update()
      {
         score.text = "Score: " + scoreValue;
+        counter.text = (15 - count) + " of 15";
      }
 
      public void UpdateScore(int scoreToAdd)
-    {
+     {
         scoreValue += scoreToAdd;
         
-    }
+     }
 
-   public void AddCount()
-   {
-       count++;
+     public void AddCount()
+     {
+         count++;
         
-    }
+     }
 
-    public void ResetCount()
-    {
-        count = 0;
-    }
+
+     public void ResetCount()
+     {
+         count = 0;
+     }
 
 
 
