@@ -26,8 +26,12 @@ public class GameManager : MonoBehaviour
      [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
      public static extern IntPtr GetTrigger(char button);
 
-     // This is here for initial testing purposes until we implement a dynamic question/answer work-flow. 
-     private static List<Question> UnansweredQuestions = new List<Question>
+     [DllImport("UnmanagedCode", CallingConvention = CallingConvention.Cdecl)]
+     public static extern int GetCount();
+
+
+    // This is here for initial testing purposes until we implement a dynamic question/answer work-flow. 
+    private static List<Question> UnansweredQuestions = new List<Question>
      {
         new Question
         {
@@ -490,7 +494,6 @@ public class GameManager : MonoBehaviour
      void Start()
      {
           SetCurrentQuestion();
-          score.text = "Score: " + scoreValue;
           
      }
 
@@ -503,20 +506,16 @@ public class GameManager : MonoBehaviour
      public void UpdateScore(int scoreToAdd)
     {
         scoreValue += scoreToAdd;
-        score.text = "Score: " + scoreValue;
         
     }
 
-    public void AddCount()
-    {
-        count++;
+   public void AddCount()
+   {
+       count++;
         
     }
 
-    public void ResetCount()
-    {
-        count = 0;
-    }
+
 
 
      public void UserSelectA()
@@ -571,6 +570,7 @@ public class GameManager : MonoBehaviour
             // Add score function. If correct add question score.
                UpdateScore(10);
                AddCount();
+            
 
         }
           else
@@ -607,8 +607,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ResetCount();
             SceneManager.LoadScene("EndScreen");
+            count = GetCount();
         }
     }
 }
