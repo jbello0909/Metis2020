@@ -30,8 +30,6 @@ public class Menu : MonoBehaviour
 
     public void ExitButton()
     {
-
         Application.Quit();
-    
     }
 }
