@@ -439,6 +439,248 @@ public class GameManager : MonoBehaviour
         },
         new Question
         {
+            Fact = "What year was the first Thunder Over Louisville held?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "1998",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "1987",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "1990",
+                    Result = 1
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Who is the leader of S.H.I.E.L.D.?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Nick Fury",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "Bruce Banner",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Steve Rogers",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Which is the highest poker hand?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Four of a Kind",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Full House",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Royal Flush",
+                    Result = 1
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Which is the longest mountain range?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Appalachians",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Andes",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "Himalayas",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "The co-founder of which app married Serena Williams?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Reddit",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "Twitter",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "LinkedIn",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Which is NOT a real fruit?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Tangeline",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "Cherimoya",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Ackee",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "What is the term for half of a byte?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "byttle",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "niblet",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "nibble",
+                    Result = 1
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "How many IU campuses are there?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "9",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "7",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "6",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Which is the name of a Greek god?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Hyteus",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Pollux",
+                    Result = 1
+                },
+                new Answer
+                {
+                    Response = "Opatia",
+                    Result = 0
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "Which is the best selling video game?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "Call of Duty",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Tetris",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "Pokemon",
+                    Result = 1
+                }
+            },
+        },
+        new Question
+        {
+            Fact = "How many justices sit on the US Supreme Court?",
+             Answers = new List<Answer>
+              {
+                new Answer
+                {
+                    Response = "12",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "7",
+                    Result = 0
+                },
+                new Answer
+                {
+                    Response = "9",
+                    Result = 1
+                }
+            },
+        },
+        new Question
+        {
             Fact = "Who was the creator of The Last Supper painting?",
              Answers = new List<Answer>
               {
