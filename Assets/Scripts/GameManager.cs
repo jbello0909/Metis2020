@@ -726,6 +726,11 @@ public class GameManager : MonoBehaviour
      public Text score;
      public static int count = 0;
      public Text counter;
+     public AudioSource[] sounds;
+     public AudioSource QuestionAudio;
+     public AudioSource CorrectAudio;
+     public AudioSource WrongAudio;
+
      //Constructor
      void Awake()
      {
@@ -745,24 +750,41 @@ public class GameManager : MonoBehaviour
      void Start()
      {
           SetCurrentQuestion();
+
+          sounds = GetComponents<AudioSource>();
+          QuestionAudio = sounds[0];
+          CorrectAudio = sounds[1];
+          WrongAudio = sounds[2];
+          QuestionAudio.Play();
      }
 
      // Update is called once per frame
      void Update()
      {
-          score.text = "Score: " + scoreValue;
-          counter.text = (count) + " of 15";
+          if (score)
+          {
+               score.text = "Score: " + scoreValue;
+          }
+
+          if (counter)
+          {
+               counter.text = (count) + " of 15";
+          }
      }
 
      public void UserSelectA()
      {
+          QuestionAudio.Stop();
+
           if (CheckAnswer(CurrentQuestion.Answers[0].Result))
           {
+               CorrectAudio.Play();
                FirstResponseImg.texture = CorrectTexture;
                scoreValue = UpdateScoreInc(scoreValue);
           }
           else
           {
+               WrongAudio.Play();
                FirstResponseImg.texture = WrongTexture;
                scoreValue = UpdateScoreDec(scoreValue);
           }
@@ -773,13 +795,17 @@ public class GameManager : MonoBehaviour
 
      public void UserSelectB()
      {
+          QuestionAudio.Stop();
+
           if (CheckAnswer(CurrentQuestion.Answers[1].Result))
           {
+               CorrectAudio.Play();
                SecondResponseImg.texture = CorrectTexture;
                scoreValue = UpdateScoreInc(scoreValue);
           }
           else
           {
+               WrongAudio.Play();
                SecondResponseImg.texture = WrongTexture;
                scoreValue = UpdateScoreDec(scoreValue);
           }
@@ -790,13 +816,17 @@ public class GameManager : MonoBehaviour
 
      public void UserSelectC()
      {
+          QuestionAudio.Stop();
+
           if (CheckAnswer(CurrentQuestion.Answers[2].Result))
           {
+               CorrectAudio.Play();
                ThirdResponseImg.texture = CorrectTexture;
                scoreValue = UpdateScoreInc(scoreValue);
           }
           else
           {
+               WrongAudio.Play();
                ThirdResponseImg.texture = WrongTexture;
                scoreValue = UpdateScoreDec(scoreValue);
           }
@@ -810,11 +840,26 @@ public class GameManager : MonoBehaviour
           int index = Random.Range(0, UnansweredQuestions.Count);
           CurrentQuestion = UnansweredQuestions[index];
           Debug.Log($"{CurrentQuestion.Fact}");
-          FactText.text = CurrentQuestion.Fact;
 
-          FirstAnswerText.text = $"a) {CurrentQuestion.Answers[0].Response}";
-          SecondAnswerText.text = $"b) {CurrentQuestion.Answers[1].Response}";
-          ThirdAnswerText.text = $"c) {CurrentQuestion.Answers[2].Response}";
+          if (FactText)
+          {
+               FactText.text = CurrentQuestion.Fact;
+          }
+
+          if (FirstAnswerText)
+          {
+               FirstAnswerText.text = $"a) {CurrentQuestion.Answers[0].Response}";
+          }
+
+          if (SecondAnswerText)
+          {
+               SecondAnswerText.text = $"b) {CurrentQuestion.Answers[1].Response}";
+          }
+
+          if (ThirdAnswerText)
+          {
+               ThirdAnswerText.text = $"c) {CurrentQuestion.Answers[2].Response}";
+          }
      }
 
      IEnumerator TransitionToNextQuestion()
